@@ -19,6 +19,7 @@
     <canvas id='view'></canvas>
     <script src='lib/game-object.js'></script>
     <script src='lib/view.js'></script>
+    <script src='lib/earth.js'></script>
     <script src='lib/keyboard.js'></script>
     <script src='lib/clock.js'></script>
     <script src='lib/vector2.js'></script>
@@ -28,10 +29,11 @@
 
       const clock = new Clock(16)
       const controls = new Keyboard()
-      const ship = new Ship(clock, controls)
       const galaxy = new Galaxy()
-      const view = new View(clock, document.getElementById('view'), ship, galaxy)
-      galaxy.generate(1000, view.range() * 3)
+      const earth = new Earth(0, 0, 10000)
+      const ship = new Ship(-earth.radius - 200, 300, clock, controls)
+      const view = new View(clock, document.getElementById('view'), ship, galaxy, earth)
+      galaxy.generate(1000, view.pos, view.range() * 3)
       clock.start()
 
     </script>
