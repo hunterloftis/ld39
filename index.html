@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <title>LD39</title>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      #view {
+        width: 100%;
+        height: 100%;
+        background: #000;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id='view'></canvas>
+    <script src='lib/game-object.js'></script>
+    <script src='lib/view.js'></script>
+    <script src='lib/clock.js'></script>
+    <script src='lib/vector2.js'></script>
+    <script src='lib/ship.js'></script>
+    <script>
+
+      const clock = new Clock(16)
+      const ship = new Ship(clock)
+      const view = new View(clock, document.getElementById('view'), ship)
+      clock.start()
+
+    </script>
+  </body>
+</html>
